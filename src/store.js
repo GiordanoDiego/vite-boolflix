@@ -11,16 +11,7 @@ export const store = reactive({
     //ARRAY-API
     foundedFilm: [],
     foundedST: [],
-    flags: {
-       "en": "https://flagsapi.com/GB/flat/64.png",
-       "zh" : "cinese",
-       "fr" :"francese",
-       "it" : "https://flagsapi.com/IT/flat/64.png",
-       "es" :"https://flagsapi.com/ES/flat/64.png",
-       "ja" : "https://flagsapi.com/JP/flat/64.png",
-       "de" : "https://flagsapi.com/DE/flat/64.png",
-       "general" : "generale"
-    },
+    
 
     //VARIABLES
     inputUser:"",

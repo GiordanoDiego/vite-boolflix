@@ -18,7 +18,28 @@ export default {
     },
    
     methods: {
-
+        getUrlImg(codeL){
+            let language = codeL;
+            if(codeL == "en"){
+                language = "GB";
+            }
+            if(codeL == "ja"){
+                language = "JP";
+            }
+            if(codeL == "zh"){
+                language = "CH";
+            }
+            if(codeL == "da"){
+                language = "DE";
+            }
+            const url = "https://flagsapi.com/film.original_language.toUpperCase()/flat/64.png";
+            const pt1 ="https://flagsapi.com/";
+            const pt2 = language.toUpperCase();
+            const pt3 = "/flat/64.png";
+            const urlComplete = pt1 + pt2 + pt3;
+         
+            return urlComplete;
+        }
     }
 }
 
@@ -48,8 +69,7 @@ export default {
                                 {{film.original_title}}
                             </li>
                             <li>
-                                {{film.original_language}}
-                                <img src="https://flagsapi.com/GB/flat/64.png" alt="">
+                                <img :src="getUrlImg(film.original_language)" :alt="film.original_language">
                             </li>
                             <li>
                                 {{film.vote_average}}
@@ -80,8 +100,7 @@ export default {
                                 {{film.original_name}}
                             </li>
                             <li>
-                                {{film.original_language}}
-                                <img src="https://flagsapi.com/GB/flat/64.png" alt="">
+                                <img :src="getUrlImg(film.original_language)" :alt="film.original_language">
                             </li>
                             <li>
                                 {{film.vote_average}}

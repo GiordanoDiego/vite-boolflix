@@ -63,7 +63,6 @@ export default {
     <AppHeader 
     @searchInputUser = "searchInputUser()"/>
     <AppMain/>
-    <AppFooter/>
 </template>
 
 <style lang="scss"> //tolgo scoped per applicare il reset al body
