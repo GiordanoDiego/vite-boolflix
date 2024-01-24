@@ -5,11 +5,12 @@
         2) Dichiarazione del componente all'interno dell'oggetto
         3) Utilizzo del componente    
 */
+import {store} from '../store.js' // import axios form 'axios';
 
 export default {
     data(){
         return{
-            
+            store,
         }
     },
     components: {
@@ -26,8 +27,26 @@ export default {
 
 <template>
     <main>
-        <div class="my_container">
-            main
+        <div class="my_container d-flex flex-wrap">
+           <div v-for="(film, i) in store.foundedFilm">
+                <div>
+                    <h5>Film cercato:</h5>
+                </div>
+                <ul>
+                    <li>
+                        {{film.title}}
+                    </li>
+                    <li>
+                        {{film.original_title}}
+                    </li>
+                    <li>
+                        {{film.original_language}}
+                    </li>
+                    <li>
+                        {{film.vote_average}}
+                    </li>
+                </ul>
+           </div>
         </div>
     </main>
 </template>

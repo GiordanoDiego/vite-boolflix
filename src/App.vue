@@ -23,12 +23,28 @@ export default {
         AppFooter
     },
     methods: {
+        searchInputUser(){
+            if(this.store.inputUser.length > 0){
+                const urlSearch = this.store.apiSearchFilm + this.store.inputUser;
 
+                axios.get(urlSearch).then((response) => {
+                console.log("chiamata api", response.data.results);
+                this.store.foundedFilm = response.data.results;
+                console.log("Array founded:",this.store.foundedFilm);
+
+                this.store.inputUser = "";
+            });
+            }
+            
+        }
     },  
-    mounted(){ //montarlo
-    axios.get('https://rickandmortyapi.com/api/character?page=1').then((response) => {
-        console.log(response);
-    });
+    created(){ //montarlo
+        
+        // axios.get(this.store.apiSearchFilm).then((response) => {
+        //     console.log("chiamata api", response.data.results);
+        //     this.store.foundedFilm = response.data.results;
+        //     console.log("Array founded:",this.store.foundedFilm);
+        // });
     }
 }
 
@@ -36,7 +52,8 @@ export default {
 </script>
 
 <template>
-    <AppHeader/>
+    <AppHeader 
+    @searchInputUser = "searchInputUser()"/>
     <AppMain/>
     <AppFooter/>
 </template>

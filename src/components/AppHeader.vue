@@ -6,11 +6,12 @@
         3) Utilizzo del componente    
 */
 
+import {store} from '../store.js' // import axios form 'axios';
 
 export default {
     data(){
         return {
-            
+            store,
         }
         
     },
@@ -25,7 +26,15 @@ export default {
 <template>
      <header>
         <div class="my_container">
-            header
+            <div>
+                Logo 
+            </div>
+            <div class="search-bar_container">
+                <div class="input-group">
+                    <input v-model="store.inputUser" id="search-bar" type="text" class="form-control" placeholder="Cerca..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <button @click="$emit('searchInputUser')" class="btn btn-danger" type="button" id="button-addon2">vai!</button>
+                </div>
+            </div>
         </div>
      </header>
 </template>
