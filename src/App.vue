@@ -25,17 +25,25 @@ export default {
     methods: {
         searchInputUser(){
             if(this.store.inputUser.length > 0){
-                const urlSearch = this.store.apiSearchFilm + this.store.inputUser;
+                //FILM
+                const urlSearchFilm = this.store.apiSearchFilm + this.store.inputUser;
 
-                axios.get(urlSearch).then((response) => {
-                console.log("chiamata api", response.data.results);
-                this.store.foundedFilm = response.data.results;
-                console.log("Array founded:",this.store.foundedFilm);
+                axios.get(urlSearchFilm).then((response) => {
+                    this.store.foundedFilm = response.data.results;
+                    console.log("Array film:",this.store.foundedFilm);
+                    console.log("lingua",this.store.foundedFilm.original_language);
+                });
 
-                this.store.inputUser = "";
-            });
-            }
-            
+                //SERIES
+                const urlSearchSeries = this.store.apiSearchST + this.store.inputUser;
+
+                axios.get(urlSearchSeries).then((response) => {
+                    console.log("response", this.response)
+                    this.store.foundedST = response.data.results;
+                    console.log("Array serie:",this.store.foundedST);
+                    this.store.inputUser = "";
+                });   
+            }            
         }
     },  
     created(){ //montarlo

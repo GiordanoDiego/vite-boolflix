@@ -28,24 +28,67 @@ export default {
 <template>
     <main>
         <div class="my_container d-flex flex-wrap">
-           <div v-for="(film, i) in store.foundedFilm">
-                <div>
-                    <h5>Film cercato:</h5>
+           <!-- FILM -->
+            <div>
+                <h3>
+                    FIlm
+                </h3>
+                <div class=" d-flex flex-wrap">
+                    <div class=" m-4 " v-for="(film, i) in store.foundedFilm">
+                        <div>
+                            <h5>Film cercato:</h5>
+                        </div>
+                        
+                        <!-- LISTA FILM -->
+                        <ul>
+                            <li>
+                                {{film.title}}
+                            </li>
+                            <li>
+                                {{film.original_title}}
+                            </li>
+                            <li>
+                                {{film.original_language}}
+                                <img src="https://flagsapi.com/GB/flat/64.png" alt="">
+                            </li>
+                            <li>
+                                {{film.vote_average}}
+                            </li>
+                        </ul> 
+                    </div>
                 </div>
-                <ul>
-                    <li>
-                        {{film.title}}
-                    </li>
-                    <li>
-                        {{film.original_title}}
-                    </li>
-                    <li>
-                        {{film.original_language}}
-                    </li>
-                    <li>
-                        {{film.vote_average}}
-                    </li>
-                </ul>
+           </div>
+
+           <!-- TELEFILM -->
+           <hr>
+           <div>
+                <h3>
+                    SERIE TV
+                </h3>
+                <div class=" d-flex flex-wrap">
+                    <div class=" m-4 " v-for="(film, i) in store.foundedST">
+                        <div>
+                            <h5>serie cercata:</h5>
+                        </div>
+                        
+                        <!-- serie lista -->
+                        <ul>
+                            <li>
+                                {{film.name}}
+                            </li>
+                            <li>
+                                {{film.original_name}}
+                            </li>
+                            <li>
+                                {{film.original_language}}
+                                <img src="https://flagsapi.com/GB/flat/64.png" alt="">
+                            </li>
+                            <li>
+                                {{film.vote_average}}
+                            </li>
+                        </ul> 
+                    </div>
+                </div>
            </div>
         </div>
     </main>
