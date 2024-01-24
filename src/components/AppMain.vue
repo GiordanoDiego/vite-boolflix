@@ -35,7 +35,7 @@ export default {
             
             const pt1 ="https://flagsapi.com/";
             const pt2 = language.toUpperCase();
-            const pt3 = "/flat/64.png";
+            const pt3 = "/flat/32.png";
             const urlComplete = pt1 + pt2 + pt3;
          
             return urlComplete;
