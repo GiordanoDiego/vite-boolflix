@@ -32,7 +32,7 @@ export default {
             if(codeL == "da"){
                 language = "DE";
             }
-            const url = "https://flagsapi.com/film.original_language.toUpperCase()/flat/64.png";
+            
             const pt1 ="https://flagsapi.com/";
             const pt2 = language.toUpperCase();
             const pt3 = "/flat/64.png";
