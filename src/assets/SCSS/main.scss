@@ -17,3 +17,33 @@ main{
     min-height: 100vh;
 }
 
+.films_container{
+    width: 100%;
+    .single_film_container{
+        width: calc((100% / 5) - 10px);
+        margin: 5px;
+        position: relative;
+        .preview_container{
+            
+            img{
+               width: 100%;
+               display: block;
+               border: 1px solid rgba(245, 245, 245, 0.225);
+            }
+        }
+    }
+}
+
+.informations{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.894);
+    height: 100%;
+    padding: 8px;
+    display: none;
+}
+
+.single_film_container:hover .informations{
+    display: block;
+}

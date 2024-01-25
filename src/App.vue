@@ -7,7 +7,6 @@
 */
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
-import AppFooter from './components/AppFooter.vue';
 import {store} from './store.js' // import axios form 'axios';
 import axios from 'axios'; // importo elemento axios
 
@@ -20,7 +19,7 @@ export default {
     components: {
         AppHeader,
         AppMain,
-        AppFooter
+   
     },
     methods: {
         searchInputUser(){

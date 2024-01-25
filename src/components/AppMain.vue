@@ -11,6 +11,7 @@ export default {
     data(){
         return{
             store,
+            rateStars: "",
         }
     },
     components: {
@@ -32,6 +33,9 @@ export default {
             if(codeL == "da"){
                 language = "DE";
             }
+            if(codeL == "ko"){
+                language = "KR";
+            }
             
             const pt1 ="https://flagsapi.com/";
             const pt2 = language.toUpperCase();
@@ -39,7 +43,13 @@ export default {
             const urlComplete = pt1 + pt2 + pt3;
          
             return urlComplete;
-        }
+        },
+
+        getUrlPreview(finalUrl){
+            let url = "https://image.tmdb.org/t/p/w342/" + finalUrl;
+            return url;
+        },
+
     }
 }
 
@@ -48,61 +58,62 @@ export default {
 
 <template>
     <main>
-        <div class="my_container d-flex flex-wrap">
+        <div class="my_container">
            <!-- FILM -->
-            <div>
+            <div class="">
                 <h3>
-                    FIlm
+                    Film <i class="fa-regular fa-star"></i>
                 </h3>
-                <div class=" d-flex flex-wrap">
-                    <div class=" m-4 " v-for="(film, i) in store.foundedFilm">
-                        <div>
-                            <h5>Film cercato:</h5>
-                        </div>
-                        
+                <div class="d-flex flex-wrap films_container">
+                    <div class="single_film_container" v-for="(film, i) in store.foundedFilm">
                         <!-- LISTA FILM -->
-                        <ul>
-                            <li>
-                                {{film.title}}
-                            </li>
-                            <li>
-                                {{film.original_title}}
-                            </li>
-                            <li>
+                        <div class="preview_container">
+                            <img :src="getUrlPreview(film.poster_path)" :alt="film.title">
+                        </div>
+                        <div  class="informations">
+                            <div>
+                                Titolo: {{film.title}}
+                            </div>
+                            <div>
+                                Titolo originale: {{film.original_title}}
+                            </div>
+                            <div>
+                                Lingua:
                                 <img :src="getUrlImg(film.original_language)" :alt="film.original_language">
-                            </li>
-                            <li>
-                                {{film.vote_average}}
-                            </li>
-                        </ul> 
+                            </div>
+                            <div>
+                                voto:
+                                <i v-for="i in Math.floor(film.vote_average / 2)" class="fa-solid fa-star"></i>
+                                <i v-for="i in (5 - Math.floor(film.vote_average / 2))" class="fa-regular fa-star"></i>
+                            </div>    
+                        </div>
                     </div>
                 </div>
-           </div>
+            </div>
 
            <!-- TELEFILM -->
            <hr>
-           <div>
+
+           <div class="ST_container">
                 <h3>
                     SERIE TV
                 </h3>
-                <div class=" d-flex flex-wrap">
+                <div class="d-flex flex-wrap">
                     <div class=" m-4 " v-for="(film, i) in store.foundedST">
-                        <div>
-                            <h5>serie cercata:</h5>
-                        </div>
-                        
                         <!-- serie lista -->
                         <ul>
                             <li>
-                                {{film.name}}
+                                Titolo: {{film.name}}
                             </li>
                             <li>
-                                {{film.original_name}}
+                                Titolo originale: {{film.original_name}}
                             </li>
                             <li>
+                                Lingua:
                                 <img :src="getUrlImg(film.original_language)" :alt="film.original_language">
                             </li>
                             <li>
+                                Voto:
                                 {{film.vote_average}}
                             </li>
                         </ul> 
