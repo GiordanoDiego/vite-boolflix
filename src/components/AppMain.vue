@@ -6,6 +6,9 @@
         3) Utilizzo del componente    
 */
 import {store} from '../store.js' // import axios form 'axios';
+import ShowFilmSearch from './ShowFilmSearch.vue';
+import ShowTSSearch from './ShowTSSearch.vue';
+
 
 export default {
     data(){
@@ -15,6 +18,8 @@ export default {
         }
     },
     components: {
+        ShowFilmSearch,
+        ShowTSSearch
        
     },
    
@@ -76,30 +81,7 @@ export default {
                     Film <i class="fa-regular fa-star"></i>
                 </h3>
                 <div class="d-flex flex-wrap films_container">
-                    <div class="single_film_container" v-for="(film, i) in store.foundedFilm">
-                        <!-- LISTA FILM -->
-                        <div class="preview_container">
-                            <img :src="getUrlPreview(film.poster_path)" :alt="film.title">
-                        </div>
-                        <div  class="informations">
-                            <div>
-                                Titolo: {{film.title}}
-                            </div>
-                            <div>
-                                Titolo originale: {{film.original_title}}
-                            </div>
-                            <div>
-                                Lingua:
-                                <img :src="getUrlImg(film.original_language)" :alt="film.original_language">
-                            </div>
-                            <div>
-                                voto:
-                                <i v-for="i in Math.floor(film.vote_average / 2)" class="fa-solid fa-star"></i>
-                                <i v-for="i in (5 - Math.floor(film.vote_average / 2))" class="fa-regular fa-star"></i>
-                            </div> 
-                              
-                        </div>
-                    </div>
+                    <ShowFilmSearch/>
                 </div>
             </div>
 
@@ -111,30 +93,7 @@ export default {
                     SERIES <i class="fa-regular fa-star"></i>
                 </h3>
                 <div class="d-flex flex-wrap films_container">
-                    <div class="single_film_container" v-for="(ST, i) in store.foundedST">
-                        <!-- LISTA FILM -->
-                        <div class="preview_container">
-                            <img :src="getUrlPreviewSeries(ST.poster_path)" :alt="ST.name">
-                        </div>
-                        <div  class="informations">
-                            <div>
-                                Titolo: {{ST.name}}
-                            </div>
-                            <div>
-                                Titolo originale: {{ST.original_name}}
-                            </div>
-                            <div>
-                                Lingua:
-                                <img :src="getUrlImg(ST.original_language)" :alt="ST.original_language">
-                            </div>
-                            <div>
-                                voto:
-                                <i v-for="i in Math.floor(ST.vote_average / 2)" class="fa-solid fa-star"></i>
-                                <i v-for="i in (5 - Math.floor(ST.vote_average / 2))" class="fa-regular fa-star"></i>
-                            </div>
-                              
-                        </div>
-                    </div>
+                    <ShowTSSearch/>
                 </div>
             </div>
         </div>

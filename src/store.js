@@ -17,4 +17,39 @@ export const store = reactive({
 
     //VARIABLES
     inputUser:"",
+
+    //FUNCTIONS
+    getUrlImg(codeL){
+        let language = codeL;
+        if(codeL == "en"){
+            language = "GB";
+        }
+        if(codeL == "ja"){
+            language = "JP";
+        }
+        if(codeL == "zh"){
+            language = "CH";
+        }
+        if(codeL == "da"){
+            language = "DE";
+        }
+        if(codeL == "ko"){
+            language = "KR";
+        }
+        
+        const pt1 ="https://flagsapi.com/";
+        const pt2 = language.toUpperCase();
+        const pt3 = "/flat/32.png";
+        const urlComplete = pt1 + pt2 + pt3;
+     
+        return urlComplete;
+    },
+    getUrlPreview(finalUrl){
+        let url = "https://image.tmdb.org/t/p/w342/" + finalUrl;
+        return url;
+    },
+    getUrlPreviewSeries(finalUrl){
+        let urlComplete = "https://image.tmdb.org/t/p/w342/" + finalUrl;
+        return urlComplete;
+    }
 });
