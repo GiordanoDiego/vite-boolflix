@@ -49,6 +49,10 @@ export default {
             let url = "https://image.tmdb.org/t/p/w342/" + finalUrl;
             return url;
         },
+        getUrlPreviewSeries(finalUrl){
+            let urlComplete = "https://image.tmdb.org/t/p/w342/" + finalUrl;
+            return urlComplete;
+        }
 
     }
 }
@@ -91,35 +95,39 @@ export default {
                 </div>
             </div>
 
-           <!-- TELEFILM -->
-           <hr>
 
-           <div class="ST_container">
+
+            <!-- TELEFILM -->
+            <div class="">
                 <h3>
-                    SERIE TV
+                    SERIES <i class="fa-regular fa-star"></i>
                 </h3>
-                <div class="d-flex flex-wrap">
-                    <div class=" m-4 " v-for="(film, i) in store.foundedST">
-                        <!-- serie lista -->
-                        <ul>
-                            <li>
-                                Titolo: {{film.name}}
-                            </li>
-                            <li>
-                                Titolo originale: {{film.original_name}}
-                            </li>
-                            <li>
+                <div class="d-flex flex-wrap films_container">
+                    <div class="single_film_container" v-for="(ST, i) in store.foundedST">
+                        <!-- LISTA FILM -->
+                        <div class="preview_container">
+                            <img :src="getUrlPreviewSeries(ST.poster_path)" :alt="ST.name">
+                        </div>
+                        <div  class="informations">
+                            <div>
+                                Titolo: {{ST.name}}
+                            </div>
+                            <div>
+                                Titolo originale: {{ST.original_name}}
+                            </div>
+                            <div>
                                 Lingua:
-                                <img :src="getUrlImg(film.original_language)" :alt="film.original_language">
-                            </li>
-                            <li>
-                                Voto:
-                                {{film.vote_average}}
-                            </li>
-                        </ul> 
+                                <img :src="getUrlImg(ST.original_language)" :alt="ST.original_language">
+                            </div>
+                            <div>
+                                voto:
+                                <i v-for="i in Math.floor(ST.vote_average / 2)" class="fa-solid fa-star"></i>
+                                <i v-for="i in (5 - Math.floor(ST.vote_average / 2))" class="fa-regular fa-star"></i>
+                            </div>    
+                        </div>
                     </div>
                 </div>
-           </div>
+            </div>
         </div>
     </main>
 </template>

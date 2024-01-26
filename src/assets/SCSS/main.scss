@@ -8,7 +8,6 @@
 .my_container{
     width: 1100px;
     margin: 0 auto;
-    border: 1px dashed red
 }
 
 main{
@@ -40,6 +39,7 @@ main{
     left: 0;
     background-color: rgba(0, 0, 0, 0.894);
     height: 100%;
+    width: 100%;
     padding: 8px;
     display: none;
 }

@@ -60,7 +60,7 @@ export default {
 
 <template>
     <AppHeader 
-    @searchInputUser = "searchInputUser()"/>
+        @searchInputUser = "searchInputUser()"/>
     <AppMain/>
 </template>
 

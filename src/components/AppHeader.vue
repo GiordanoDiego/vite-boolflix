@@ -26,8 +26,8 @@ export default {
 <template>
      <header>
         <div class="my_container">
-            <div>
-                Logo 
+            <div class="logo-container">
+                <img src="/img/logo.svg" alt="logo non trovato">
             </div>
             <div class="search-bar_container">
                 <div class="input-group">
