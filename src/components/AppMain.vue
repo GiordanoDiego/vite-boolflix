@@ -62,7 +62,14 @@ export default {
 
 <template>
     <main>
-        <div class="my_container">
+        <div class=" text-center mb-3 ">
+                Ricerca Film - Serie tv: {{ store.inputUser }}
+                <div>
+                    <small>(premi il punsante vai!)</small>
+                </div>
+        </div>
+        <div v-if="store.foundedFilm.length > 0 || store.foundedST.length > 0" class="my_container">
+            
            <!-- FILM -->
             <div class="">
                 <h3>
@@ -89,14 +96,15 @@ export default {
                                 voto:
                                 <i v-for="i in Math.floor(film.vote_average / 2)" class="fa-solid fa-star"></i>
                                 <i v-for="i in (5 - Math.floor(film.vote_average / 2))" class="fa-regular fa-star"></i>
-                            </div>    
+                            </div> 
+                              
                         </div>
                     </div>
                 </div>
             </div>
 
 
-
+            <hr>
             <!-- TELEFILM -->
             <div class="">
                 <h3>
@@ -123,7 +131,8 @@ export default {
                                 voto:
                                 <i v-for="i in Math.floor(ST.vote_average / 2)" class="fa-solid fa-star"></i>
                                 <i v-for="i in (5 - Math.floor(ST.vote_average / 2))" class="fa-regular fa-star"></i>
-                            </div>    
+                            </div>
+                              
                         </div>
                     </div>
                 </div>
